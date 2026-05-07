@@ -1,0 +1,81 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNIGrv1nwh4LVDBDUoe+Wg+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/25040999-cmd/Probabilidad-y-estadistica-/blob/main/Pr%C3%A1ctica_Unidad_5_.ipynb/Unidad%205\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dmeK8eVSvBXO",
+        "outputId": "324c1792-33f6-4a7b-9658-53c5b33765a0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "La ganancia esperada para el año 2024 es de: 36.0\n",
+            "Coeficientes de la regresión lineal:  2.0000000000000004\n",
+            "Intercepto de la regresión lineal:  20.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "from sklearn.linear_model import LinearRegression #Modelo de regresión\n",
+        "import numpy as np #Librería de cálculo numérico\n",
+        "\n",
+        "#Datos de entrada\n",
+        "periodos = [2018, 2019, 2020, 2021, 2022, 2023]\n",
+        "inversión = np.array([2, 3, 5, 4, 11, 5] ).reshape(-1, 1)\n",
+        "ganancias = [20, 25, 34, 30, 40, 31]\n",
+        "\n",
+        "#Crear y entrenar el modelo de regresión lineal\n",
+        "modelo = LinearRegression()\n",
+        "modelo.fit(inversión, ganancias)\n",
+        "\n",
+        "#Predecir la ganancia para el año 2024\n",
+        "ganancia_2024 = modelo.predict( [[8]] )\n",
+        "print(\"La ganancia esperada para el año 2024 es de:\" , ganancia_2024[0])\n",
+        "#Coeficientes de la regresion\n",
+        "print(\"Coeficientes de la regresión lineal: \", modelo.coef_[0])\n",
+        "print(\"Intercepto de la regresión lineal: \", modelo.intercept_)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "wMa0yd8KwmVU"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
